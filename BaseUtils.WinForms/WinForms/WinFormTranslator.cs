@@ -10,28 +10,28 @@ public static class WinFormTranslatorExtensions
 {
     public static void Translate(this BaseUtils.Translator translator, Control ctrl, Control[] ignorelist = null)
     {
-        ((WinFormTranslator)translator).Translate(ctrl, ignorelist);
+        WinFormTranslator.Instance.Translate(ctrl, ignorelist);
     }
 
-    public static void Translate(this Translator translator, Control ctrl, string subname, Control[] ignorelist, bool debugit = false)
-    {
-        ((WinFormTranslator)translator).Translate(ctrl, subname, ignorelist, debugit);
-    }
+    //public static void Translate(this Translator translator, Control ctrl, string subname, Control[] ignorelist, bool debugit = false)
+    //{
+    //    WinFormTranslator.Instance.Translate(ctrl, subname, ignorelist, debugit);
+    //}
 
     public static void Translate(this Translator translator, ToolStrip ctrl, Control parent)
     {
-        ((WinFormTranslator)translator).Translate(ctrl, parent);
+        WinFormTranslator.Instance.Translate(ctrl, parent);
     }
 
     public static void Translate(this Translator translator, ToolTip tt, Control parent)
     {
-        ((WinFormTranslator)translator).Translate(tt, parent);
+        WinFormTranslator.Instance.Translate(tt, parent);
     }
 
-    public static bool NameControl(this Translator translator, Control c)
-    {
-        return ((WinFormTranslator)translator).NameControl(c);
-    }
+    //public static bool NameControl(this Translator translator, Control c)
+    //{
+    //    return ((WinFormTranslator)translator).NameControl(c);
+    //}
 }
 
 namespace BaseUtils
@@ -39,6 +39,18 @@ namespace BaseUtils
 
     public class WinFormTranslator : Translator
     {
+        public new static WinFormTranslator Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new WinFormTranslator();
+                return instance;
+            }
+        }
+
+        static WinFormTranslator instance;
+
         public void Translate(Control ctrl, Control[] ignorelist = null)
         {
             Translate(ctrl, ctrl.GetType().Name, ignorelist);

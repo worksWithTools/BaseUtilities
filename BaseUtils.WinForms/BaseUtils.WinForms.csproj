@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Sdk="Microsoft.NET.Sdk.WindowsDesktop" Project="Sdk.props" Condition="'$(TargetFramework)' == 'netcoreapp3.0'" />
+  <Import Sdk="Microsoft.NET.Sdk.WindowsDesktop" Project="Sdk.props" Condition="'$(TargetFramework)' == 'netcoreapp3.0'"/>
   <PropertyGroup>
     <ProjectGuid>{61AFEA77-0276-4DCF-983F-589E6AF31258}</ProjectGuid>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BaseUtils.WinForms</RootNamespace>
     <AssemblyName>BaseUtils.WinForms</AssemblyName>
-    <TargetFrameworks>net472<!-- ;netcoreapp3.0 --></TargetFrameworks>
+    <TargetFrameworks>net472;netcoreapp3.0</TargetFrameworks>
     <Company>EDDiscovery</Company>
     <Version>1.1.0.0</Version>
     <UseWindowsForms>true</UseWindowsForms>
@@ -28,7 +28,5 @@
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <Import Sdk="Microsoft.NET.Sdk.WindowsDesktop" Project="Sdk.targets" Condition="'$(TargetFramework)' == 'netcoreapp3.0'"/>
 </Project>

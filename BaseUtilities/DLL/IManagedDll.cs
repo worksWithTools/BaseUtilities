@@ -8,7 +8,6 @@ namespace EDDiscovery.DLL
     public interface IManagedDll
     {
         String EDDInitialise(string vstr,
-                             string dllfolder,
                              EDDCallBacks callbacks);
 
         void EDDRefresh(string cmdname, JournalEntry lastje);

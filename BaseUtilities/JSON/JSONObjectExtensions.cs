@@ -186,7 +186,7 @@ public static class JSONObjectExtensions
         parent.Replace(newToken);
     }
 
-    
+#if NET472
     public static Color Color(this JToken jo, Color defc)
     {
         if (jo.Empty())
@@ -199,6 +199,7 @@ public static class JSONObjectExtensions
         catch { return defc; }
     }
 
+#endif
     public static JToken RemoveKeyUnderscores(this JToken jo)
     {
         if (jo == null || jo.Empty() || !(jo is JObject))
